@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZEUS Launchpad</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+body {
+    background:
+        linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+        url("zeus-lightning-background.gif") center center / cover fixed no-repeat;
+    background-color: #000;
+}
+
+header {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.social {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social a {
+    color: white;
+    text-decoration: none;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.social a:hover {
+    background: white;
+    color: black;
+    transform: scale(1.1);
+}
+
+.social svg {
+    width: 20px;
+    height: 20px;
+}
+
+.menu-button {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 20px 25px;
+    position: relative;
+    z-index: 10;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ccc;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto 60px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #ddd;
+    margin-bottom: 35px;
+}
+
+.launchpad-card {
+    background: rgba(0,0,0,0.72);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 40px 30px;
+    margin-bottom: 35px;
+    backdrop-filter: blur(6px);
+}
+
+.launchpad-card h2 {
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.launchpad-card p {
+    color: #ddd;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 25px;
+}
+
+.launch-button {
+    display: inline-block;
+    padding: 13px 25px;
+    border-radius: 30px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.launch-button:hover {
+    transform: scale(1.05);
+    background: #ddd;
+}
+
+.section-title {
+    font-size: 30px;
+    margin: 40px 0 25px;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.step {
+    background: rgba(0,0,0,0.65);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 28px 20px;
+}
+
+.step-number {
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 15px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.step h3 {
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.step p {
+    color: #ccc;
+    line-height: 1.7;
+}
+
+.networks {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.network-card {
+    width: 220px;
+    background: rgba(0,0,0,0.65);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 25px 15px;
+}
+
+.network-icon {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.network-card h3 {
+    font-size: 17px;
+}
+
+.brew-logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 auto 12px;
+}
+
+.community-box {
+    background: rgba(0,0,0,0.7);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 18px;
+    padding: 35px 25px;
+    margin-top: 35px;
+}
+
+.community-box h2 {
+    margin-bottom: 15px;
+}
+
+.community-box p {
+    color: #ddd;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: auto;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: #aaa;
+    font-size: 14px;
+}
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 18px 20px;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        background: rgba(0,0,0,0.9);
+        padding: 20px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .social {
+        gap: 8px;
+    }
+
+    .social a {
+        width: 34px;
+        height: 34px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">ZEUS</div>
+
+    <div class="social">
+
+        <a href="https://twitter.com/BNB_AICOIN" target="_blank" aria-label="X">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor"
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.964 6.817H1.683l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
+            </svg>
+        </a>
+
+        <a href="https://t.me/BNB_AICOIN" target="_blank" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor"
+                    d="M21.9 3.3 18.7 20c-.24 1.18-.87 1.47-1.77.92l-4.9-3.61-2.36 2.27c-.26.26-.48.48-.98.48l.35-4.98 9.07-8.19c.39-.35-.09-.55-.61-.2L6.28 13.67l-4.79-1.5c-1.04-.33-1.06-1.04.22-1.53L20.44 2.43c.91-.33 1.71.21 1.46.87Z"/>
+            </svg>
+        </a>
+
+        <a href="mailto:info@example.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor"
+                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/>
+            </svg>
+        </a>
+
+    </div>
+
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+
+</header>
+
+<nav id="mainNav">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="how-to-buy.html">How to Buy</a>
+    <a href="launchpad.html">Launchpad</a>
+    <a href="about.html">About</a>
+</nav>
+
+<div class="container">
+
+    <h1>ZEUS Launchpad</h1>
+
+    <p class="subtitle">
+        Launching ZEUS on the BNB Chain ecosystem
+    </p>
+
+    <div class="launchpad-card">
+
+        <h2>ZEUS Launchpad</h2>
+
+        <p>
+            ZEUS Launchpad is designed to provide a simple, transparent
+            and community-focused path for launching ZEUS within the
+            BNB Chain ecosystem.
+        </p>
+
+        <p>
+            From the initial token launch to community growth and
+            market access, the ZEUS Launchpad brings the key stages
+            of the project together in one clear process.
+        </p>
+
+        <a href="https://brewfamily.app/" target="_blank" class="launch-button">
+            Visit BrewFamily
+        </a>
+
+    </div>
+
+
+    <h2 class="section-title">How ZEUS Launchpad Works</h2>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="step-number">1</div>
+
+            <h3>Create</h3>
+
+            <p>
+                ZEUS is prepared for launch with its token information
+                and core project details ready for the community.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">2</div>
+
+            <h3>Fair Launch</h3>
+
+            <p>
+                ZEUS is introduced through a transparent launch process
+                designed to give the community a clear view of the
+                project's initial token distribution.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">3</div>
+
+            <h3>Build the Community</h3>
+
+            <p>
+                The ZEUS community can participate in growing awareness,
+                supporting the project and expanding the ZEUS ecosystem.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">4</div>
+
+            <h3>Liquidity & Trading</h3>
+
+            <p>
+                After launch, ZEUS can move toward liquidity and trading
+                within the BNB Chain ecosystem, connecting the token
+                with the broader DeFi market.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">ZEUS Ecosystem</h2>
+
+    <div class="networks">
+
+        <div class="network-card">
+
+            <img
+                class="network-icon"
+                src="https://raw.githubusercontent.com/bnb-chain/bnb-chain.github.io/main/docs/assets/logo.svg"
+                alt="BNB Chain">
+
+            <h3>BNB Chain</h3>
+
+        </div>
+
+
+        <div class="network-card">
+
+            <img
+                class="network-icon"
+                src="https://pancakeswap.finance/logo.png"
+                alt="PancakeSwap">
+
+            <h3>PancakeSwap</h3>
+
+        </div>
+
+
+        <div class="network-card">
+
+            <div class="brew-logo">B</div>
+
+            <h3>BrewFamily</h3>
+
+        </div>
+
+    </div>
+
+
+    <div class="community-box">
+
+        <h2>Built for the ZEUS Community</h2>
+
+        <p>
+            The ZEUS Launchpad is built around a simple goal:
+            creating a clear and accessible path for ZEUS to launch,
+            grow its community and develop within the BNB Chain ecosystem.
+        </p>
+
+    </div>
+
+</div>
+
+
+<footer>
+    © 2026 ZEUS Token. All rights reserved.
+</footer>
+
+
+<script>
+
+function toggleMenu() {
+    document.getElementById("mainNav").classList.toggle("active");
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    document.addEventListener('keydown', e => {
+        if (e.ctrlKey && ['u','s','c'].includes(e.key.toLowerCase())) {
+            e.preventDefault();
+        }
+    });
+
+});
+
+</script>
+
+</body>
+</html>
