@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZEUS Features</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('zeus-lightning-background.gif') center/cover no-repeat;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+header {
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.socials {
+  display: flex;
+  gap: 15px;
+}
+
+.socials a {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 30px;
+}
+
+.topic-gif {
+  width: 280px;
+  max-width: 80%;
+  margin: 0 auto 35px;
+  display: block;
+}
+
+.content {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 35px;
+  border-radius: 20px;
+}
+
+.content h2 {
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.content p {
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 20px;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 10;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .logo {
+    font-size: 26px;
+  }
+
+  .container {
+    margin-top: 50px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+}
+
+function toggleMenu() {
+  document.querySelector("nav").classList.toggle("active");
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="socials">
+    <a href="https://twitter.com/BNB_AICOIN" target="_blank">𝕏</a>
+    <a href="https://t.me/BNB_AICOIN" target="_blank">✈</a>
+    <a href="mailto:info@example.com">✉</a>
+  </div>
+
+  <a href="index.html" class="logo">ZEUS</a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="how-to-buy.html">How to Buy</a>
+    <a href="launchpad.html">Launchpad</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+</header>
+
+<main class="container">
+
+  <h1>ZEUS Features</h1>
+
+  <img src="features-zeus.gif" alt="ZEUS Features" class="topic-gif">
+
+  <div class="content">
+
+    <h2>Community Powered</h2>
+    <p>
+      ZEUS is built around a strong and active community.
+      Every holder is part of the journey toward a growing ecosystem.
+    </p>
+
+    <h2>Built for the Community</h2>
+    <p>
+      ZEUS focuses on creating an engaging environment where
+      the community can participate and grow together.
+    </p>
+
+    <h2>BNB Chain</h2>
+    <p>
+      ZEUS is designed for the BNB Chain ecosystem,
+      providing fast and efficient blockchain transactions.
+    </p>
+
+    <h2>Memecoin Energy</h2>
+    <p>
+      ZEUS combines the energy of the memecoin community
+      with a powerful visual identity inspired by Zeus and lightning.
+    </p>
+
+    <h2>Growing Ecosystem</h2>
+    <p>
+      The ZEUS ecosystem is designed to expand through
+      new integrations, partnerships and community initiatives.
+    </p>
+
+    <h2>The Power of ZEUS</h2>
+    <p>
+      ZEUS represents strength, energy and the future of digital assets.
+    </p>
+
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 ZEUS Token. All Rights Reserved.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.querySelector("nav").classList.toggle("active");
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  document.addEventListener('keydown', e => {
+    if (e.ctrlKey && ['u','s','c'].includes(e.key.toLowerCase())) {
+      e.preventDefault();
+    }
+  });
+});
+</script>
+
+</body>
+</html>
