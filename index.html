@@ -5,32 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZEUS Token</title>
 <style>
-/* Reset and Font */
 * {margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif;}
 body {color:#fff;line-height:1.6;overflow-x:hidden;scroll-behavior:smooth;position:relative;}
 
-/* Background GIF Fullscreen */
 body::before {
   content:"";
   position:fixed;
   top:0; left:0;
   width:100%; height:100%;
   background: url('zeus-lightning-background.gif') center/cover no-repeat;
-  opacity:0.3;
+  opacity:0.8;
   z-index:-1;
 }
 
-/* Navbar / Dashboard */
 header {position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.85);}
 .dashboard {display:flex;justify-content:space-between;align-items:center;padding:10px 40px;flex-wrap:wrap;}
 .dashboard h1 {font-size:28px;color:#00ffff;cursor:pointer;}
 
-/* Social Icons */
 .nav-left {display:flex;align-items:center;gap:15px;}
 .nav-left img {width:28px;height:28px;object-fit:contain;cursor:pointer;transition:0.3s;}
 .nav-left img:hover {transform:scale(1.2);}
 
-/* Menu and Hamburger */
 .menu-wrapper {display:flex;align-items:center;gap:20px;}
 .menu {list-style:none;display:flex;gap:20px;align-items:center;}
 .menu li a {color:#fff;text-decoration:none;font-weight:bold;display:flex;align-items:center;gap:5px;transition:0.3s;}
@@ -59,9 +54,11 @@ header {position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.85);}
   .hamburger {display:flex;}
 }
 
-/* Hero */
 .hero {position:relative;text-align:center;padding:120px 20px;background:transparent;}
-.token-wrapper {display:inline-block;animation:float 6s ease-in-out infinite, rotate 20s linear infinite;}
+.token-wrapper {
+  display:inline-block;
+  animation:float 6s ease-in-out infinite;
+}
 .token {width:250px;height:auto;border-radius:20px;max-width:100%;}
 .hero h2 {font-size:40px;margin:20px 0;color:#00ffff;}
 .hero p {font-size:18px;margin-bottom:30px;}
@@ -80,7 +77,6 @@ header {position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.85);}
 }
 .hero button:hover, .buy-btn:hover {background:#00cccc;}
 
-/* Features */
 .features {padding:80px 20px;background:transparent;}
 .features h2 {text-align:center;margin-bottom:50px;color:#00ffff;}
 .feature-list {display:flex;flex-wrap:wrap;justify-content:center;gap:30px;}
@@ -104,10 +100,8 @@ header {position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.85);}
 .feature h3 {color:#00ffff;margin-bottom:10px;}
 .feature p {color:#ccc;}
 
-/* Feature captions */
 .feature-caption {color:#ccc;margin-top:10px;font-size:14px;}
 
-/* Roadmap */
 .roadmap {padding:80px 20px;text-align:center;background:transparent;}
 .roadmap h2 {margin-bottom:50px;color:#00ffff;}
 .phase {
@@ -120,7 +114,6 @@ header {position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.85);}
 }
 .phase:hover {transform:translateY(-10px);}
 
-/* Contact */
 .contact {padding:80px 20px;text-align:center;background:transparent;}
 .contact h2 {margin-bottom:30px;color:#00ffff;}
 .contact form {
@@ -146,7 +139,6 @@ header {position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.85);}
 }
 .contact button:hover {background:#00cccc;}
 
-/* Footer */
 footer {background:rgba(15,15,15,0.9);padding:30px;text-align:center;}
 footer p {margin-bottom:10px;}
 footer .nav-icons img {
@@ -158,7 +150,6 @@ footer .nav-icons img {
 }
 footer .nav-icons img:hover {transform:scale(1.2);}
 
-/* Animations */
 @keyframes float {
   0%{transform:translateY(0);}
   25%{transform:translateY(-20px);}
@@ -296,7 +287,6 @@ footer .nav-icons img:hover {transform:scale(1.2);}
 
     </div>
 
-
     <div class="feature">
 
       <img src="zeus-ecosystem.gif" alt="Ecosystem GIF">
@@ -314,7 +304,6 @@ footer .nav-icons img:hover {transform:scale(1.2);}
 
     </div>
 
-
     <div class="feature">
 
       <img src="zeus-transactions.gif" alt="Transactions GIF">
@@ -331,7 +320,6 @@ footer .nav-icons img:hover {transform:scale(1.2);}
       </div>
 
     </div>
-
 
     <div class="feature">
 
@@ -355,7 +343,6 @@ footer .nav-icons img:hover {transform:scale(1.2);}
 
 </section>
 
-
 <section class="roadmap" id="launchpad">
 
   <h2>Roadmap</h2>
@@ -369,7 +356,6 @@ footer .nav-icons img:hover {transform:scale(1.2);}
   <div class="phase">Phase 4: Marketing & Investors</div>
 
 </section>
-
 
 <section class="contact" id="about">
 
@@ -404,7 +390,6 @@ footer .nav-icons img:hover {transform:scale(1.2);}
 
 </section>
 
-
 <footer>
 
   <p>© 2025 ZEUS</p>
@@ -427,10 +412,8 @@ footer .nav-icons img:hover {transform:scale(1.2);}
 
 </footer>
 
-
 <script>
 
-// Hamburger menu toggle
 function toggleMenu() {
   document.querySelector('.menu').classList.toggle('active');
 }
@@ -453,8 +436,6 @@ function validateForm() {
   return true;
 }
 
-
-// Security enhancements
 document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('contextmenu', e => e.preventDefault());
