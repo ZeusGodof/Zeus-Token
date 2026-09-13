@@ -1,0 +1,515 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZEUS Token</title><style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background: #000;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("zeus-lightning-background.gif") center/cover no-repeat;
+    opacity: 0.8;
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    z-index: -1;
+}
+
+header {
+    position: relative;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    background: rgba(0,0,0,0.35);
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 15px #fff;
+}
+
+.social {
+    display: flex;
+    gap: 15px;
+}
+
+.social a {
+    color: white;
+    text-decoration: none;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.social a:hover {
+    background: white;
+    color: black;
+    transform: scale(1.1);
+}
+
+.social svg {
+    width: 20px;
+    height: 20px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-shadow: 0 0 10px white;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.token-wrapper {
+    animation: float 6s ease-in-out infinite;
+}
+
+.token-wrapper img {
+    width: 260px;
+    max-width: 80vw;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin: 25px 0 15px;
+    text-shadow: 0 0 20px white;
+}
+
+.hero p {
+    max-width: 700px;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 28px;
+    border: 1px solid white;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: white;
+    color: black;
+}
+
+section {
+    padding: 80px 30px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 45px;
+    text-shadow: 0 0 15px white;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.card {
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    max-width: 180px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+}
+
+.card p {
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.roadmap {
+    max-width: 900px;
+    margin: auto;
+}
+
+.phase {
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.phase h3 {
+    margin-bottom: 10px;
+}
+
+.contact {
+    max-width: 700px;
+    margin: auto;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+}
+
+.contact textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact button {
+    padding: 13px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.buy-section {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.buy-button {
+    display: inline-block;
+    padding: 16px 35px;
+    border-radius: 35px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 0 25px rgba(255,255,255,0.7);
+}
+
+.buy-button:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    background: rgba(0,0,0,0.5);
+}
+
+footer .social {
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 900px) {
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 15px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+</style></head><body><header>
+    <div class="social">
+        <a href="https://twitter.com/BNB_AICOIN" target="_blank" aria-label="X">
+            <svg viewBox="0 0 24 24">
+                <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.964 6.817H1.683l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
+            </svg>
+        </a>    <a href="https://t.me/BNB_AICOIN" target="_blank" aria-label="Telegram">
+        <svg viewBox="0 0 24 24">
+            <path fill="currentColor" d="M21.9 3.3 18.7 20c-.24 1.18-.87 1.47-1.77.92l-4.9-3.61-2.36 2.27c-.26.26-.48.48-.98.48l.35-4.98 9.07-8.19c.39-.35-.09-.55-.61-.2L6.28 13.67l-4.79-1.5c-1.04-.33-1.06-1.04.22-1.53L20.44 2.43c.91-.33 1.71.21 1.46.87Z"/>
+        </svg>
+    </a>
+
+    <a href="mailto:info@example.com" aria-label="Email">
+        <svg viewBox="0 0 24 24">
+            <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/>
+        </svg>
+    </a>
+</div>
+
+<a href="index.html" class="logo">ZEUS</a>
+
+<button class="menu-toggle" id="menuToggle">☰</button>
+
+<nav id="mainNav">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="how-to-buy.html">How to Buy</a>
+    <a href="#launchpad">Launchpad</a>
+    <a href="#about">About</a>
+</nav>
+
+</header><section class="hero">
+    <div class="token-wrapper">
+        <img src="zeus-token.gif" alt="ZEUS Token">
+    </div><h1>ZEUS – The Future of Digital Assets</h1>
+
+<p>
+    ZEUS is a community-driven digital asset built for the future.
+    Join the ZEUS ecosystem and become part of the journey.
+</p>
+
+<a href="#features" class="button">Get Started</a>
+
+</section><section id="features">
+    <h2 class="section-title">Features</h2><div class="features">
+
+    <div class="card">
+        <img src="zeus-launch.gif" alt="ZEUS Launch">
+        <h3>ZEUS Launch</h3>
+        <p>
+            A powerful beginning for the ZEUS ecosystem and its growing community.
+        </p>
+    </div>
+
+    <div class="card">
+        <img src="zeus-ecosystem.gif" alt="Community & Interaction">
+        <h3>Community & Interaction</h3>
+        <p>
+            Built around community participation, interaction and engagement.
+        </p>
+    </div>
+
+    <div class="card">
+        <img src="zeus-transactions.gif" alt="Growing ZEUS">
+        <h3>Growing ZEUS</h3>
+        <p>
+            Designed to grow with its community and expand across the ecosystem.
+        </p>
+    </div>
+
+    <div class="card">
+        <img src="zeus-chaharom.gif" alt="Future Partnerships">
+        <h3>Future Partnerships</h3>
+        <p>
+            Focused on future opportunities, partnerships and ecosystem expansion.
+        </p>
+    </div>
+
+</div>
+
+</section><section id="roadmap">
+    <h2 class="section-title">Roadmap</h2><div class="roadmap">
+
+    <div class="phase">
+        <h3>Phase 1: Initial Launch</h3>
+        <p>Launch ZEUS and build the initial community.</p>
+    </div>
+
+    <div class="phase">
+        <h3>Phase 2: Exchange Listings</h3>
+        <p>Expand availability and increase market accessibility.</p>
+    </div>
+
+    <div class="phase">
+        <h3>Phase 3: DeFi Integrations</h3>
+        <p>Explore DeFi integrations and ecosystem opportunities.</p>
+    </div>
+
+    <div class="phase">
+        <h3>Phase 4: Marketing & Investors</h3>
+        <p>Expand marketing efforts and build future partnerships.</p>
+    </div>
+
+</div>
+
+</section><section id="contact">
+    <h2 class="section-title">Contact</h2><div class="contact">
+    <form onsubmit="return validateForm()">
+
+        <input type="text" id="name" placeholder="Name">
+
+        <input type="email" id="email" placeholder="Email">
+
+        <textarea id="message" placeholder="Message"></textarea>
+
+        <button type="submit">Send Message</button>
+
+    </form>
+</div>
+
+</section><section class="buy-section" id="buy">
+    <a href="https://example.com/buy-zeus" class="buy-button">
+        🛒 برای خرید کلیک کنید
+    </a>
+</section><footer>
+    <div class="social">
+        <a href="https://twitter.com/BNB_AICOIN" target="_blank" aria-label="X">
+            <svg viewBox="0 0 24 24">
+                <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.964 6.817H1.683l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
+            </svg>
+        </a>    <a href="https://t.me/BNB_AICOIN" target="_blank" aria-label="Telegram">
+        <svg viewBox="0 0 24 24">
+            <path fill="currentColor" d="M21.9 3.3 18.7 20c-.24 1.18-.87 1.47-1.77.92l-4.9-3.61-2.36 2.27c-.26.26-.48.48-.98.48l.35-4.98 9.07-8.19c.39-.35-.09-.55-.61-.2L6.28 13.67l-4.79-1.5c-1.04-.33-1.06-1.04.22-1.53L20.44 2.43c.91-.33 1.71.21 1.46.87Z"/>
+        </svg>
+    </a>
+
+    <a href="mailto:info@example.com" aria-label="Email">
+        <svg viewBox="0 0 24 24">
+            <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/>
+        </svg>
+    </a>
+</div>
+
+<p>© 2026 ZEUS. All Rights Reserved.</p>
+
+</footer><script>
+function validateForm() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !email || !message) {
+        alert("Please fill in all fields.");
+        return false;
+    }
+
+    return true;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    menuToggle.addEventListener("click", () => {
+        mainNav.classList.toggle("active");
+    });
+
+    mainNav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            mainNav.classList.remove("active");
+        });
+    });
+
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    document.addEventListener('keydown', e => {
+        if (e.ctrlKey && ['u','s','c'].includes(e.key.toLowerCase())) {
+            e.preventDefault();
+        }
+    });
+});
+</script></body>
+</html>
